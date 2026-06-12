@@ -22,10 +22,7 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "db/taskdb.db"
-        }
+        "kind": "hana-cloud"
       },
       "auth": {
         "kind": "mocked",
@@ -45,19 +42,33 @@
             "tenant": "t1"
           }
         }
+      },
+      "[production]": {
+        "db":{
+          "kind":"hana-cloud"
+        },
+        "auth": {
+          "kind": "xsuaa"
+        }
       }
     }
   },
   "dependencies": {
+    "@cap-js/hana": "^2",
     "@cap-js/sqlite": "^2.4.0",
+    "@sap-cloud-sdk/connectivity": "^4.7.0",
+    "@sap-cloud-sdk/http-client": "^4.7.0",
+    "@sap-cloud-sdk/resilience": "^4.7.0",
     "@sap/cds": "^9.9.1",
     "@sap/cds-dk": "^9.9.2",
-    "@sap/cds-foss": "^5.0.2"
+    "@sap/cds-foss": "^5.0.2",
+    "@sap/xssec": "^4"
   },
   "workspaces": [
     "app/*"
   ],
   "devDependencies": {
+    "@sap/cds-dk": "^9",
     "cds-plugin-ui5": "^0.13.0"
   },
   "sapux": [
