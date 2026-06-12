@@ -1,0 +1,122 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Employees
+# @name Employees_GET
+GET {{server}}/admin/Employees?$expand=assignedTasks
+Authorization: Basic {{username}}:{{password}}
+
+
+### Employees
+# @name Employees_POST
+POST {{server}}/admin/Employees
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "name": "Mike Doe",
+  "email": "mike@gmail.com",
+  "department_ID": "3954121f-0b62-4914-940b-56ca6e3cc798"
+}
+
+
+### Employees
+# @name Employees_PATCH
+PATCH {{server}}/admin/Employees/ca893fed-8e11-4e36-9a15-7a21ea3b3b2e
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "name": "Jane Doe",
+  "email": "dane@gmail.com",
+  "department_ID": "39541204-f722-44a7-a0ad-4a680bfd46ce"
+}
+
+
+### Employees
+# @name Employees_DELETE
+DELETE {{server}}/admin/Employees/7409285e-bac3-4825-b274-c82c911012cf
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### Departments
+# @name Departments_GET
+GET {{server}}/admin/Departments?$expand=employees
+Authorization: Basic {{username}}:{{password}}
+
+
+### Departments
+# @name Departments_POST
+POST {{server}}/admin/Departments
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "10876004-45ca-43c3-9e21-ddbd1ef02342",
+  "name": "Install package 'randexp' to create data for regex ^[A-Za-z ]",
+  "code": "{3}",
+  "description": "description-1087600"
+}
+
+
+### Departments
+# @name Departments_PATCH
+PATCH {{server}}/admin/Departments/10876004-45ca-43c3-9e21-ddbd1ef02342
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "10876004-45ca-43c3-9e21-ddbd1ef02342",
+  "name": "Install package 'randexp' to create data for regex ^[A-Za-z ]",
+  "code": "{3}",
+  "description": "description-1087600"
+}
+
+
+### Departments
+# @name Departments_DELETE
+DELETE {{server}}/admin/Departments/10876004-45ca-43c3-9e21-ddbd1ef02342
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### Tasks
+# @name Tasks_GET
+GET {{server}}/admin/Tasks
+Authorization: Basic {{username}}:{{password}}
+
+
+### Tasks
+# @name Tasks_POST
+POST {{server}}/admin/Tasks
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "title": "Set up CI/CD Pipeline",
+  "description": "Configure GitHub Actions to deploy the CAP project automatically",
+  "dueDate": "2026-06-15",
+  "priority": 3,
+  "status": "Pending"
+}
+
+
+### Tasks
+# @name Tasks_PATCH
+PATCH {{server}}/admin/Tasks/0d2e99e5-0500-4c97-9496-d6e1fd0e4b84
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "assignedTo_ID": "67c113c9-1b72-4125-825e-c461c4ecfe99"
+}
+
+
+### Tasks
+# @name Tasks_DELETE
+DELETE {{server}}/admin/Tasks/28055075-621b-4c13-91e3-510bdc96e5b4
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
